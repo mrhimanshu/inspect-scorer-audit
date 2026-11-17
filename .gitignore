@@ -1,0 +1,11 @@
+# Secrets: never commit
+.env
+.env.*
+*.key
+secrets*
+
+# Local artefacts
+.venv/
+logs/
+__pycache__/
+*.pyc
