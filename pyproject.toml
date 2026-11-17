@@ -1,0 +1,29 @@
+[project]
+name = "inspect-scorer-audit"
+version = "0.1.0"
+description = "A labelled benchmark measuring how often Inspect AI's built-in scorers misgrade model answers"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "Himanshu Saini" }]
+dependencies = [
+    "inspect-ai>=0.3.290",
+    "latex2sympy2-extended==1.11.0",
+    "antlr4-python3-runtime==4.13.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+inspect-scorer-audit = "scorer_audit.report:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["scorer_audit"]
+
+[tool.ruff]
+line-length = 100

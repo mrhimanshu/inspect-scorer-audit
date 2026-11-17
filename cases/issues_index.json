@@ -1,0 +1,483 @@
+[
+ {
+  "number": 6594,
+  "title": "[Bug]: model_graded_qa scores a hedged \"GRADE: C/I\" as C while \"GRADE: CI\" is a parse failure",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6594",
+  "labels": [],
+  "created_at": "2026-11-16T23:04:00Z",
+  "author": "crishN144",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6574,
+  "title": "match(numeric=True) reads 一千五 as 1005, so a correct 1500 target scores INCORRECT",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6574",
+  "labels": [],
+  "created_at": "2026-11-16T10:56:56Z",
+  "author": "chrikrah",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6573,
+  "title": "choice() scorer silently decomposes a stray word in the target into letter positions on tasks with >=26 choices (\"answer B\" becomes 7 correct answers)",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6573",
+  "labels": [],
+  "created_at": "2026-11-16T10:34:06Z",
+  "author": "kittimzhe",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6572,
+  "title": "`match(numeric=True)` skips amounts written with `¥`, `₹` and other currency symbols, so a wrong number can score CORRECT",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6572",
+  "labels": [],
+  "created_at": "2026-11-16T06:45:16Z",
+  "author": "yaokaiy",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6568,
+  "title": "match() scores every answer CORRECT when a punctuation-only target normalizes to empty (CSV null markers like \"-\", \".\")",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6568",
+  "labels": [],
+  "created_at": "2026-11-15T11:27:13Z",
+  "author": "kittimzhe",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6537,
+  "title": "match(numeric=True) compares numbers rounded to 5 significant digits, so 187503 matches 187500",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6537",
+  "labels": [],
+  "created_at": "2026-11-12T19:11:48Z",
+  "author": "ishan-nerlekar",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6536,
+  "title": "match(numeric=True): when the final answer can't be parsed (e.g. `\\boxed{126}`), a number from the reasoning is graded instead",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6536",
+  "labels": [],
+  "created_at": "2026-11-12T19:11:47Z",
+  "author": "ishan-nerlekar",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6535,
+  "title": "multiple_choice: correct answers written as `**ANSWER:** C`, `ANSWER: (C) Paris` or `` ANSWER: `C` `` score INCORRECT",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6535",
+  "labels": [],
+  "created_at": "2026-11-12T19:11:45Z",
+  "author": "ishan-nerlekar",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6534,
+  "title": "multiple_choice: an earlier `ANSWER: B` wins over the model's final `**ANSWER: C**` or `Final ANSWER: C`",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6534",
+  "labels": [],
+  "created_at": "2026-11-12T19:11:43Z",
+  "author": "ishan-nerlekar",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6505,
+  "title": "math() scores bold \"**Answer: X**\" and \"The answer is: X\" lines wrong in both directions",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6505",
+  "labels": [],
+  "created_at": "2026-11-11T16:58:41Z",
+  "author": "chaitanya0305",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6414,
+  "title": "math() reads a base subscript like `11010_2` as a Python digit separator, so `11010_{2}` scores INCORRECT against it",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6414",
+  "labels": [],
+  "created_at": "2026-11-09T00:40:06Z",
+  "author": "zhouyi-xiaoxiao",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6375,
+  "title": "match(numeric=True) strips every comma, so `1,2` scores CORRECT against `12`",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6375",
+  "labels": [],
+  "created_at": "2026-11-07T23:19:45Z",
+  "author": "YusefSyed",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6363,
+  "title": "exact() and f1() join digits across a separator, so `12` scores CORRECT against `1/2` and `230` against `2:30`",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6363",
+  "labels": [],
+  "created_at": "2026-11-06T17:37:12Z",
+  "author": "gjreddy",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6356,
+  "title": "Hedged multiple-choice answers like `ANSWER: A/B` score CORRECT against target `A`",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6356",
+  "labels": [],
+  "created_at": "2026-11-06T15:01:50Z",
+  "author": "chaitanya0305",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6351,
+  "title": "`exact()` and `f1()` drop the decimal point from a thousands-grouped number: `1,234.50` scores CORRECT against `123450` and INCORRECT against `1234.50`",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6351",
+  "labels": [
+   "deferred"
+  ],
+  "created_at": "2026-11-06T03:46:20Z",
+  "author": "yaokaiy",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6268,
+  "title": "exact() and f1() split a negative exponent, so 1e-3 misses 0.001 and -1e-3 matches 1e-3",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6268",
+  "labels": [
+   "deferred"
+  ],
+  "created_at": "2026-11-02T18:48:32Z",
+  "author": "chrikrah",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6223,
+  "title": "match(numeric=True) reads a number grouped with typographic spaces (U+00A0, U+202F, U+2009, e.g. \"2 500\") as its last group (500)",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6223",
+  "labels": [
+   "deferred"
+  ],
+  "created_at": "2026-10-31T11:07:26Z",
+  "author": "ChrystianSchutz",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6065,
+  "title": "math() scores a closed interval [a, b] CORRECT against the open interval (a, b)",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6065",
+  "labels": [
+   "deferred"
+  ],
+  "created_at": "2026-10-24T04:07:26Z",
+  "author": "deBilla",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 6016,
+  "title": "math(): an answer equal to the target inside a set, tuple or interval is scored INCORRECT because a sympy .equals failure is swallowed",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6016",
+  "labels": [],
+  "created_at": "2026-10-22T16:46:23Z",
+  "author": "art-dsit",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 5994,
+  "title": "match(numeric=True) scores a correct number INCORRECT when it is attached to a label or = without a space (ANSWER:60, 28+32=60)",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5994",
+  "labels": [
+   "deferred"
+  ],
+  "created_at": "2026-10-21T09:30:53Z",
+  "author": "Fruiterer333",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 5936,
+  "title": "`choice()` scores a correct answer INCORRECT when the target lists the same letter twice",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5936",
+  "labels": [
+   "deferred"
+  ],
+  "created_at": "2026-10-18T19:59:48Z",
+  "author": "elliottolson",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 5824,
+  "title": "Dataset loaders preserve surrounding whitespace in `target`, which crashes choice shuffling and silently mis-scores text targets",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5824",
+  "labels": [
+   "deferred"
+  ],
+  "created_at": "2026-10-12T02:53:28Z",
+  "author": "samyang777",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 5733,
+  "title": "math() scores a prose answer CORRECT when the target appears anywhere later in the text",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5733",
+  "labels": [],
+  "created_at": "2026-10-07T05:30:09Z",
+  "author": "wguo7",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 5595,
+  "title": "answer(\"line\") scores a correct answer INCORRECT on trailing whitespace",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5595",
+  "labels": [
+   "bug",
+   "accepted"
+  ],
+  "created_at": "2026-09-28T06:09:24Z",
+  "author": "feiiiiii5",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 5567,
+  "title": "match(numeric=True) treats numbers that agree to 5 significant figures as equal",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5567",
+  "labels": [],
+  "created_at": "2026-09-25T19:57:03Z",
+  "author": "jayzuccarelli",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 5525,
+  "title": "A blank `Sample.target` makes every completion CORRECT, and a mis-named CSV column produces one silently",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5525",
+  "labels": [],
+  "created_at": "2026-09-23T03:46:11Z",
+  "author": "shaurya416",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 5430,
+  "title": "math(): an over-limit or code-shaped answer candidate raises out of the scorer instead of scoring INCORRECT",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5430",
+  "labels": [],
+  "created_at": "2026-09-15T21:03:43Z",
+  "author": "antnewman",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 5055,
+  "title": "Wrapped answer extraction fails silently in `multiple_choice`",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5055",
+  "labels": [],
+  "created_at": "2026-08-26T13:25:29Z",
+  "author": "Mamiglia",
+  "included": true,
+  "skip_reason": null
+ },
+ {
+  "number": 5864,
+  "title": "model_graded_fact() and model_graded_qa() show the grader multiple targets run together (\"ParisCity of Light\")",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5864",
+  "labels": [],
+  "created_at": "2026-10-14T18:13:07Z",
+  "author": "wguo7",
+  "included": false,
+  "skip_reason": "grader prompt rendering; outcome depends on grader model, no verbatim grader reply showing a wrong grade"
+ },
+ {
+  "number": 5441,
+  "title": "math() cannot distinguish an empty completion from malformed output, and misses most real format violations",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5441",
+  "labels": [],
+  "created_at": "2026-09-16T13:48:26Z",
+  "author": "IvanSFlowGit",
+  "included": false,
+  "skip_reason": "about Score.reason / status labels, C/I values are not disputed"
+ },
+ {
+  "number": 5177,
+  "title": "model_graded scorers flatten multimodal input — the grader never sees images",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5177",
+  "labels": [
+   "deferred"
+  ],
+  "created_at": "2026-09-01T22:53:56Z",
+  "author": "dragonstyle",
+  "included": false,
+  "skip_reason": "multimodal input, no text completion case"
+ },
+ {
+  "number": 5163,
+  "title": "`model_graded_qa`: the grader never produces an answer of its own before it sees the submission. Is a commit-first variant in scope?",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5163",
+  "labels": [],
+  "created_at": "2026-09-01T09:32:20Z",
+  "author": "idilgozel",
+  "included": false,
+  "skip_reason": "feature request"
+ },
+ {
+  "number": 5832,
+  "title": "Score multiple choice by the probability of the correct answer",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5832",
+  "labels": [],
+  "created_at": "2026-10-12T16:38:39Z",
+  "author": "taziksh",
+  "included": false,
+  "skip_reason": "feature request"
+ },
+ {
+  "number": 5584,
+  "title": "shuffle_choices raises on multi-answer string targets like \"A,C\"",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5584",
+  "labels": [
+   "deferred"
+  ],
+  "created_at": "2026-09-27T02:05:01Z",
+  "author": "WatchTree-19",
+  "included": false,
+  "skip_reason": "shuffled choices / multi-answer crash, no grading decision"
+ },
+ {
+  "number": 5276,
+  "title": "Grading and multiple-choice templates still raise KeyError on unescaped JSON braces",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5276",
+  "labels": [],
+  "created_at": "2026-09-07T11:49:18Z",
+  "author": "Sagexd08",
+  "included": false,
+  "skip_reason": "template crash not tied to a completion"
+ },
+ {
+  "number": 5154,
+  "title": "multi_scorer: None-dropping shrinks the denominator for custom panels",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5154",
+  "labels": [],
+  "created_at": "2026-08-31T20:35:36Z",
+  "author": "dragonstyle",
+  "included": false,
+  "skip_reason": "metric/aggregation, not a single grading decision"
+ },
+ {
+  "number": 4136,
+  "title": "Model-graded scorers run the grader unseeded at the provider's default temperature — recommend a deterministic grader config in docs (+ optional warning)? Happy to PR.",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/4136",
+  "labels": [],
+  "created_at": "2026-06-04T09:05:20Z",
+  "author": null,
+  "included": false,
+  "skip_reason": "grader config/reproducibility, not a grading decision"
+ },
+ {
+  "number": 6544,
+  "title": "Reproducible Grading: temperature=0 and seed are not available for some graders (anthropic provider, gpt-6.1-sol)",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6544",
+  "labels": [],
+  "created_at": "2026-11-13T08:45:48Z",
+  "author": "hiroki-tamba-research",
+  "included": false,
+  "skip_reason": "provider/grader config"
+ },
+ {
+  "number": 3736,
+  "title": "Structured-output model-graded scoring: schema_tool_graded_scorer vs llm_scanner",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/3736",
+  "labels": [],
+  "created_at": "2026-04-22T03:46:01Z",
+  "author": null,
+  "included": false,
+  "skip_reason": "design discussion"
+ },
+ {
+  "number": 6438,
+  "title": "`mode`, `majority`, `max` and `at_least` reducers treat a `None` dict score value as a vote (or `0.0`) instead of as missing",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6438",
+  "labels": [],
+  "created_at": "2026-11-09T22:48:55Z",
+  "author": "reeve25",
+  "included": false,
+  "skip_reason": "epoch reducer, not a scorer grading decision"
+ },
+ {
+  "number": 6440,
+  "title": "at_least() reduces a dict key that is None on every epoch to 0, so aggregate(on_missing=...) never sees it",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6440",
+  "labels": [],
+  "created_at": "2026-11-10T00:10:05Z",
+  "author": "chrikrah",
+  "included": false,
+  "skip_reason": "epoch reducer"
+ },
+ {
+  "number": 6402,
+  "title": "A None value in a dict score is counted as 0 by per-key metrics instead of as unscored",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6402",
+  "labels": [],
+  "created_at": "2026-11-08T16:23:12Z",
+  "author": "chaitanya0305",
+  "included": false,
+  "skip_reason": "metric"
+ },
+ {
+  "number": 6395,
+  "title": "krippendorff_alpha(): eval with epochs fails when a judge doesn't score, and string labels still give alpha 1.0",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6395",
+  "labels": [],
+  "created_at": "2026-11-08T12:51:59Z",
+  "author": "chaitanya0305",
+  "included": false,
+  "skip_reason": "metric"
+ },
+ {
+  "number": 6522,
+  "title": "Task(metrics=...) and score() change the metrics of a scorer object that other tasks share",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6522",
+  "labels": [],
+  "created_at": "2026-11-12T04:15:25Z",
+  "author": "siddhant-rajhans",
+  "included": false,
+  "skip_reason": "metrics wiring"
+ },
+ {
+  "number": 6468,
+  "title": "MCP tool results drop structuredContent, so scorers only see the text blocks",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/6468",
+  "labels": [],
+  "created_at": "2026-11-10T18:19:20Z",
+  "author": "SarthakB11",
+  "included": false,
+  "skip_reason": "tool output plumbing, no built-in scorer decision"
+ },
+ {
+  "number": 5202,
+  "title": "frequency() metric treats Score.unscored() / NaN as a 'nan' category",
+  "url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5202",
+  "labels": [],
+  "created_at": "2026-09-02T19:49:48Z",
+  "author": "hsusul",
+  "included": false,
+  "skip_reason": "metric"
+ }
+]
