@@ -1,0 +1,4 @@
+# The lm-evaluation-harness audit needs its own environment: lm-eval pins
+# antlr4-python3-runtime 4.11, which conflicts with the Inspect AI audit's pin.
+lm-eval[math]==0.4.13
+pytest>=8

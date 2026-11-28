@@ -2,7 +2,8 @@
 
 A labelled benchmark that measures how often the built-in scorers in
 [Inspect AI](https://github.com/UKGovernmentBEIS/inspect_ai), the UK AI Security Institute's evaluation framework,
-grade a model answer differently from a careful human grader.
+grade a model answer differently from a careful human grader. It also covers answer extraction in EleutherAI's
+[lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) ([below](#lm-evaluation-harness)).
 
 An evaluation is only as reliable as its scorer. A scorer that credits a wrong answer, or rejects a right one,
 moves the headline number of every eval that uses it, and does so silently. Inspect AI has dozens of open
@@ -97,6 +98,40 @@ Append a line to `cases/issues.jsonl`:
 
 Scorer keys are defined in `SCORERS` in `scorer_audit/runner.py`.
 
+## lm-evaluation-harness
+
+`scorer_audit/lmeval.py` runs the same kind of audit on lm-eval's answer extraction. Each response runs through a
+real task's filter pipelines and `process_results`, loaded from the installed lm-eval with the task's own YAML.
+The dataset is swapped for a one-row in-memory dataset, so nothing is downloaded and no model is called.
+
+Latest run (`results/lmeval/REPORT.md`): lm-eval **0.4.13**, **1,139 cases** (1,132 systematic, 7 from reports)
+across `gsm8k` and `gsm8k_cot` (strict-match and flexible-extract), `minerva_math_algebra` (`exact_match` and
+`math_verify`) and `mmlu_pro_math`.
+
+- **flexible-extract misgrades 21 of 133 in-contract `gsm8k` cases** (18 of 130 for `gsm8k_cot`). In each one, the
+  last number in the response is the correct answer. Across both tasks:
+  - 24 systematic cases end in `$\boxed{N}$.` or `$$\boxed{N}$$`. The last regex match is `$.` or `$$`
+    ([#4375](https://github.com/EleutherAI/lm-evaluation-harness/issues/4375), open fix in PR #4379).
+  - **New:** 12 cases end in an ellipsis glued to the number (`So the total is 18...`). The filter extracts `18...`,
+    and `regexes_to_ignore` removes only one trailing `.`, so the result is compared as `18..`. PR #4379's regex
+    extracts the same string, so the fix does not cover this case.
+- `gsm8k_cot` strict-match extracts `1` from `The answer is 18` when nothing follows the number, because the `.`
+  after the capture group is unescaped (12 cases, open fix in PR #4373). These count as off-contract because the
+  few-shot answers always end in a period.
+- No in-contract misgrades for `gsm8k` strict-match, `minerva_math` `exact_match` or `math_verify`, or
+  `mmlu_pro`. Their misgrades come from formats the task doesn't ask for, a `−` (U+2212) minus sign, or documented
+  behaviour (the last number or expression wins, the first `answer is (X)` wins).
+
+```bash
+pip install -r requirements-lmeval.txt   # separate environment: lm-eval and Inspect AI pin different antlr4 runtimes
+python -m scorer_audit.lmeval --out results/lmeval
+pytest -q tests/test_lmeval.py
+```
+
+`gsm8k_cot_zeroshot` and the self-consistency variants share these filters and aren't run separately. Contracts
+for each scorer are listed in `CONTRACTS` in `scorer_audit/lmeval.py`. The same caveat applies as above: these are
+rates over a constructed corpus, not prevalence in real evals.
+
 ## Limitations
 
 - Completions are written, not sampled from models (see the note under Results).
@@ -106,7 +141,7 @@ Scorer keys are defined in `SCORERS` in `scorer_audit/runner.py`.
 
 ## Independence
 
-This project is independent of the UK AI Security Institute. Every number above comes from the committed
+This project is independent of the UK AI Security Institute and EleutherAI. Every number above comes from the committed
 run output.
 
 ## Licence

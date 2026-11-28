@@ -27,3 +27,19 @@ jobs:
         with:
           name: audit-results
           path: results/
+
+  lmeval:
+    # lm-eval pins a different antlr4 runtime from Inspect AI, so it gets its own job.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install --extra-index-url https://download.pytorch.org/whl/cpu -r requirements-lmeval.txt
+      - run: pytest -q tests/test_lmeval.py
+      - run: python -m scorer_audit.lmeval --out results/lmeval
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lmeval-audit-results
+          path: results/lmeval/
